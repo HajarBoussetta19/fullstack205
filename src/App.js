@@ -1,6 +1,7 @@
 
 import './App.css';
-import Contact from './contact';
+
+import Contact from './Contact';
 function App() {
   return (
     <div className="App">
