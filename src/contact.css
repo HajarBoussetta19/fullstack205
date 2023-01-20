@@ -1,0 +1,22 @@
+.btnn{
+    background-color: green;
+    border: green 1px solid;
+    margin: 15px;
+}
+.btnS{
+    background-color: green;
+    border: green 1px solid;
+}
+body{
+    background-color:  rgba(174, 219, 188, 0.777);
+    color: white;
+}
+
+h1{
+    color:green;
+    letter-spacing: 12px;
+    margin: 10px;
+}
+input{
+     color: transparent;
+}
