@@ -1,0 +1,15 @@
+{
+  "files": {
+    "main.css": "/HajarBoussetta19.github.io/fullstack205/static/css/main.edbf7870.css",
+    "main.js": "/HajarBoussetta19.github.io/fullstack205/static/js/main.075028ae.js",
+    "static/js/787.fab1d5b0.chunk.js": "/HajarBoussetta19.github.io/fullstack205/static/js/787.fab1d5b0.chunk.js",
+    "index.html": "/HajarBoussetta19.github.io/fullstack205/index.html",
+    "main.edbf7870.css.map": "/HajarBoussetta19.github.io/fullstack205/static/css/main.edbf7870.css.map",
+    "main.075028ae.js.map": "/HajarBoussetta19.github.io/fullstack205/static/js/main.075028ae.js.map",
+    "787.fab1d5b0.chunk.js.map": "/HajarBoussetta19.github.io/fullstack205/static/js/787.fab1d5b0.chunk.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.edbf7870.css",
+    "static/js/main.075028ae.js"
+  ]
+}
