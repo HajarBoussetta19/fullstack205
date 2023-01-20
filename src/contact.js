@@ -32,6 +32,12 @@ export default function Contact() {
        });
      setListContact(listCon);
   };
+const Recherche =()=>{
+    return Recherche.filter(t => 
+      t.ville.toLowerCase().includes(Rechercher.toLowerCase()) 
+    );
+
+    };
 
  
 
