@@ -1,4 +1,4 @@
-import React, { useState , UseSelector} from 'react'
+import React, { useState } from 'react'
 import { v4 as uuid } from 'uuid';
 import "./contact.css";
 export default function Contact() {
@@ -48,12 +48,12 @@ export default function Contact() {
       <div className="row">
         <div className="col-9 mx-auto mt-5">
           <form>
-            <div className='mb-4 row'>
-              <div className='col'>
+            <div className="mb-4 row">
+              <div className="col">
                 <input type="text" placeholder="Rechercher" value={Rechercher}   onChange={(e)=>{setrechercher(e.target.value)}} className='form-control shadow-none'/>
               </div>
-              <div  >
-                  <button className='btn btn-success btnn mt-3' onClick={Recherche}> Contact</button>
+              <div >
+                  <button className='btn btn-success btnn mt-0' onClick={Recherche}> Contact</button>
               </div>
             </div>
             <div className="mb-5 row">
@@ -66,13 +66,15 @@ export default function Contact() {
               <div className="col-4">
                 <input type="text" className="form-control shadow-none" placeholder='Entrez ville' id="ville" value={ville} onChange={(e)=>{setville(e.target.value)}}/>
                </div> 
-               <div  >
-                  <button className='btn btn-success btnn mt-3' onClick={ajouterContact}>Ajouter Contact</button>
+               <div >
+                  <button className='btn btn-success btnn mt-3 ' onClick={ajouterContact}>Ajouter Contact</button>
               </div>
               <div >
-          <span onClick={(e)=>setOrder(!order)}>  {order ? <button className='btn btn-success btnn mt-3'>trie desc</button> : <button className='btn btn-success btnn mt-3'>trie asc</button>}</span>
+          <span onClick={()=>setOrder(!order) }>  {order ? <button className='btn btn-success btnn mt-3 '>trie desc</button> : <button className='btn btn-success btnn mt-3'>trie asc</button>}</span>
         </div>
+        <div>
 
+        </div>
       </div>
           </form>
         </div>
@@ -87,11 +89,30 @@ export default function Contact() {
                 <th>Action</th>
               </tr>
             </thead>
-            <tbody id="1">
-            {
+            <tbody >  
 
-     
-        
+               {
+                 
+                order ? ListContact.sort((a, b) => (a.nom > b.nom ? 1 : -1)).map((e)=>{   
+                  
+                   <tr key={e.id}>                    
+                   <td>{e.nom}</td>
+                   <td>{e.tel}</td>
+                   <td>{e.ville}</td> 
+                   <td><button className='btn btn-danger btnS' onClick={()=>supprimerContact(e.id)}>Supprimer</button></td></tr>
+               
+            })   : ListContact.sort((a, b) => (a.nom < b.nom ? 1 : -1)).map((e)=>{                
+               <tr key={e.id} >                    
+               <td>{e.nom}</td>
+               <td>{e.tel}</td>
+               <td>{e.ville}</td> 
+               <td><button className='btn btn-danger btnS' onClick={()=>supprimerContact(e.id)}>Supprimer</button></td></tr>
+           
+        }) 
+  
+               }
+
+{
                 ListContact.map((e)=>{
 
                 return <tr key={e.id} >
@@ -103,9 +124,9 @@ export default function Contact() {
                     </tr>
                    
                 })
-               
-          
-          
+
+
+
           }
              
             
