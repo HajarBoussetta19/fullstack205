@@ -10,7 +10,7 @@ export default function Contact() {
     ]);
     const [order, setOrder] = useState(true);
     const [Rechercher, setrechercher] = useState([]);
-    const [fliter, setFliterdContacts] = useState('');
+    const [flitered, setFliterdContacts] = useState('');
     const [nom,setnom]=useState('');
     const [tel,settel]=useState('');
     const[ville,setville]=useState('');
@@ -33,20 +33,15 @@ export default function Contact() {
        });
      setListContact(listCon);
   };
-  const Rch =(Recher)=>{
-    if(Rechercher.trim()==""){
-       return Recher;
-
-    }
-    
-    return fliter.filter(t=>{
-      t.ville.toLowerCase().includes(Rechercher.toLowerCase())
-      setFliterdContacts(Rch);
-    
+  const Recherche=(e)=>{
+    e.preventDefault();
+    let tablee=ListContact.filter((c)=>{
+      return c.ville.toLowerCase().includes(Rechercher.toLowerCase());
     });
-    
-  }
-return (
+    setListContact(tablee);
+    setrechercher("")
+  };
+  return (
     <div>
       <h1>List Contact Pour React </h1>
       <div className="container">
@@ -55,7 +50,10 @@ return (
           <form>
             <div className='mb-4 row'>
               <div className='col'>
-                <input type="text" placeholder="Rechercher"  value={Rechercher}  onChange={(e)=>setrechercher(e.target.value)} className='form-control shadow-none'/>
+                <input type="text" placeholder="Rechercher" value={Rechercher}   onChange={(e)=>{setrechercher(e.target.value)}} className='form-control shadow-none'/>
+              </div>
+              <div  >
+                  <button className='btn btn-success btnn mt-3' onClick={Recherche}> Contact</button>
               </div>
             </div>
             <div className="mb-5 row">
@@ -96,7 +94,7 @@ return (
         
                 ListContact.map((e)=>{
 
-                return <tr key={e.id}>
+                return <tr key={e.id} >
 
                     <td>{e.nom}</td>
                     <td>{e.tel}</td>
