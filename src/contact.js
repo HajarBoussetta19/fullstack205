@@ -8,8 +8,9 @@ export default function Contact() {
         {id:uuid(),nom:'Malika Lirmaki',tel:'06783423009',ville:'Fas'},
         {id:uuid(),nom:'Hanae Allali',tel:'0673829063',ville:'Tetoune'}
     ]);
-    const [Rechercher, setrechercher] = useState('');
     const [order, setOrder] = useState(true);
+    const [Rechercher, setrechercher] = useState([]);
+    const [fliter, setFliterdContacts] = useState('');
     const [nom,setnom]=useState('');
     const [tel,settel]=useState('');
     const[ville,setville]=useState('');
@@ -32,17 +33,20 @@ export default function Contact() {
        });
      setListContact(listCon);
   };
-const Recherche =()=>{
-    return Recherche.filter(t => 
-      t.ville.toLowerCase().includes(Rechercher.toLowerCase()) 
-    );
+  const Rch =(Recher)=>{
+    if(Rechercher.trim()==""){
+       return Recher;
 
-    };
-
- 
-
-
-  return (
+    }
+    
+    return fliter.filter(t=>{
+      t.ville.toLowerCase().includes(Rechercher.toLowerCase())
+      setFliterdContacts(Rch);
+    
+    });
+    
+  }
+return (
     <div>
       <h1>List Contact Pour React </h1>
       <div className="container">
@@ -51,7 +55,7 @@ const Recherche =()=>{
           <form>
             <div className='mb-4 row'>
               <div className='col'>
-                <input type="text" placeholder="Rechercher" value={Rechercher}   onChange={(e)=>setrechercher(e.target.value)} className='form-control shadow-none'/>
+                <input type="text" placeholder="Rechercher"  value={Rechercher}  onChange={(e)=>setrechercher(e.target.value)} className='form-control shadow-none'/>
               </div>
             </div>
             <div className="mb-5 row">
@@ -70,6 +74,7 @@ const Recherche =()=>{
               <div >
           <span onClick={(e)=>setOrder(!order)}>  {order ? <button className='btn btn-success btnn mt-3'>trie desc</button> : <button className='btn btn-success btnn mt-3'>trie asc</button>}</span>
         </div>
+
       </div>
           </form>
         </div>
@@ -86,6 +91,9 @@ const Recherche =()=>{
             </thead>
             <tbody id="1">
             {
+
+     
+        
                 ListContact.map((e)=>{
 
                 return <tr key={e.id}>
@@ -98,7 +106,10 @@ const Recherche =()=>{
                    
                 })
                
-            }
+          
+          
+          }
+             
             
 
 
