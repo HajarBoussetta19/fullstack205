@@ -8,9 +8,8 @@ export default function Contact() {
         {id:uuid(),nom:'Malika Lirmaki',tel:'06783423009',ville:'Fas'},
         {id:uuid(),nom:'Hanae Allali',tel:'0673829063',ville:'Tetoune'}
     ]);
-    const [order, setOrder] = useState(true);
+    const [tri, settri] = useState(true);
     const [Rechercher, setrechercher] = useState([]);
-    const [flitered, setFliterdContacts] = useState('');
     const [nom,setnom]=useState('');
     const [tel,settel]=useState('');
     const[ville,setville]=useState('');
@@ -70,7 +69,7 @@ export default function Contact() {
                   <button className='btn btn-success btnn mt-3 ' onClick={ajouterContact}>Ajouter Contact</button>
               </div>
               <div >
-          <span onClick={()=>setOrder(!order) }>  {order ? <button className='btn btn-success btnn mt-3 '>trie desc</button> : <button className='btn btn-success btnn mt-3'>trie asc</button>}</span>
+          <span onClick={(e)=>settri(!tri) }>  {tri ? <button className='btn btn-success btnn mt-3 '>trie desc</button> : <button className='btn btn-success btnn mt-3'>trie asc</button>}</span>
         </div>
         <div>
 
@@ -93,7 +92,7 @@ export default function Contact() {
 
                {
                  
-                order ? ListContact.sort((a, b) => (a.nom > b.nom ? 1 : -1)).map((e)=>{   
+                tri ? ListContact.sort((a, b) => (a.nom > b.nom ? 1 : -1)).map((e)=>{   
                   
                    <tr key={e.id}>                    
                    <td>{e.nom}</td>
